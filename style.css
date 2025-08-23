@@ -7,11 +7,7 @@ body {
 }
 
 /* ----- TYPOGRAPHY ----- */
-
-h1, 
-h3 {
-    margin: 0;
-}
+h1, h3 { margin: 0; }
 
 h1 {
     color: #ffeb3b; 
@@ -26,17 +22,11 @@ h2 {
     transition: color 0.3s ease;
 }
 
-h2:hover {
-    color: #ffeb3b;
-}
+h2:hover { color: #ffeb3b; }
 
-h3 {
-    font-size: 1.25rem;
-}
+h3 { font-size: 1.25rem; }
 
-p {
-    line-height: 1.5;
-}
+p { line-height: 1.5; }
 
 .subheading {
     display: block;
@@ -46,20 +36,15 @@ p {
 }
 
 /* ----- LINKS ----- */
-
 a {
     color: #1976d2; 
     text-decoration: underline dotted;
     transition: color 0.3s ease;
 }
 
-a:hover, 
-a:active {
-    color: #ffeb3b; 
-}
+a:hover, a:active { color: #ffeb3b; }
 
 /* ----- BUTTONS ----- */
-
 .btn {
     font-size: 1.125rem;
     text-align: center;
@@ -73,38 +58,44 @@ a:active {
     transition: all 0.3s ease;
 }
 
-.btn-dark {
-    color: #ffeb3b; 
-    background: #0d47a1; 
-}
+.btn-dark { color: #ffeb3b; background: #0d47a1; }
+.btn-mid { color: #0d47a1; background: #bbdefb; }
+.btn-light { color: #0d47a1; background: #fff9c4; }
 
-.btn-mid {
-    color: #0d47a1; 
-    background: #bbdefb; 
-}
-
-.btn-light {
-    color: #0d47a1; 
-    background: #fff9c4; 
-}
-
-.btn:hover, 
-.btn:active {
+.btn:hover, .btn:active {
     transform: translateY(-3px);
     color: #0d47a1; 
     background-color: #ffeb3b;
 }
 
-/* ----- LAYOUT ----- */
-
-header, 
-section, 
-footer {
-    padding: 1.5em 0;
+/* ----- HEADER ----- */
+header {
+    position: sticky;
+    top: 0;
+    background: url('images/header-background.jpg') center/cover no-repeat;
+    color: #ffeb3b;
+    padding: 2em 0;
+    z-index: 100;
+    transition: background 0.5s ease;
 }
 
-header, 
-.section-two {
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(13, 71, 161, 0.6); 
+    z-index: 0;
+}
+
+header .contain {
+    position: relative;
+    z-index: 1;
+}
+
+/* ----- LAYOUT ----- */
+section, footer { padding: 1.5em 0; }
+
+header, .section-two {
     background-color: #0d47a1; 
     color: #ffeb3b;
     transition: background-color 0.5s ease;
@@ -136,9 +127,7 @@ header,
     gap: 1em;
 }
 
-.feature-item {
-    flex: 1 260px;
-}
+.feature-item { flex: 1 260px; }
 
 footer {
     text-align: center;
@@ -147,7 +136,6 @@ footer {
 }
 
 /* ----- NAVIGATION ----- */
-
 nav a {
     color: #ffeb3b;
     text-decoration: none;
@@ -157,73 +145,29 @@ nav a {
     transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: #bbdefb;
-}
+nav a:hover { color: #bbdefb; }
 
-ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
+ul { padding: 0; margin: 0; list-style-type: none; }
 
 /* ----- MEDIA QUERIES ----- */
-
 @media (max-width: 767px) {
-    header {
-        text-align: center;
-    }
-
-    nav {
-        margin-top: 1.5em;
-    }
- 
-    li:not(:last-child) {
-        border-bottom: 1px dotted #81d4fa; 
-    }  
+    header { text-align: center; }
+    nav { margin-top: 1.5em; }
+    li:not(:last-child) { border-bottom: 1px dotted #81d4fa; }  
 }
 
 @media (min-width: 768px) {
-    header,
-    section,
-    footer {
-        padding: 2.875em 0;        
-    }
-    
-    header .contain,
-    nav ul {
-        display: flex;
-    }
-    
-    header .contain {
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    nav li {
-        margin-left: 1.25em;
-    }
-    
-    .btn {
-        display: inline-block;
-        margin-right: 0.5em;
-    }
+    header, section, footer { padding: 2.875em 0; }    
+    header .contain, nav ul { display: flex; }
+    header .contain { justify-content: space-between; align-items: center; }
+    nav li { margin-left: 1.25em; }
+    .btn { display: inline-block; margin-right: 0.5em; }
 }
 
-/* ----- SIMPLE ANIMATIONS ----- */
-
+/* ----- ANIMATIONS ----- */
 @keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
+@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
