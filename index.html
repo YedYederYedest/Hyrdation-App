@@ -60,10 +60,42 @@
             </div>
         </section>
 
+        <!--Store Section-->
+
+<!-- Store Section -->
+<section class="menu" id="menu"></section>
+
+<section class="cart" id="cart">
+    <h1>Your Order</h1>
+    <ul class="cart-user-order" id="cart-user-order"></ul>
+    <div class="cart-user-total">
+        <h2>Total Price:</h2>
+        <h2 id="cart-user-total-amount">$0</h2>
+    </div>
+    
+    <button class="cart-completeOrderBtn" id="cart-completeOrderBtn">Complete Order</button>
+</section>
+
+<section class="pay" id="pay">
+    <form id="pay-modal">
+        <button type="button" class="closeModal" id="closeModal">X</button>
+        <h2>Enter Your Card Details</h2>
+        <input type="text" placeholder="Enter Your Name" id="customerName" name="customerName" required>
+        <input type="number" placeholder="Enter Your Card Details" required>
+        <input type="number" placeholder="Enter Random Numbers" required>
+        <button type="submit" class="payBtn" id="payBtn">Pay</button>
+    </form>
+</section>
+
+<section class="orderMessage" id="orderMessage">
+    <h2 id="orderMessage-paid">Thank you! You got Scammed!</h2>
+</section>
+
+
         <footer>
             <p><span id="yearUpdate"></span> @YedYederYedest Softwares</p>
         </footer>
     </main>
-<script src="index.js"></script>
+<script src="/JS/index.js" type="module"></script>
 </body>
 </html>

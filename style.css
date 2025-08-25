@@ -4,6 +4,7 @@ body {
     margin: 0;
     background-color: #f0f7ff; 
     transition: background-color 0.5s ease;
+    padding-top: 120px; /* prevents content from hiding under fixed header */
 }
 
 /* ----- TYPOGRAPHY ----- */
@@ -70,12 +71,14 @@ a:hover, a:active { color: #ffeb3b; }
 
 /* ----- HEADER ----- */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     background: url('images/header-background.jpg') center/cover no-repeat;
     color: #ffeb3b;
     padding: 2em 0;
-    z-index: 100;
+    z-index: 1000;
     transition: background 0.5s ease;
 }
 
@@ -171,3 +174,254 @@ ul { padding: 0; margin: 0; list-style-type: none; }
 }
 
 @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+/* ---------- STORE SECTION ---------- */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 20px;
+}
+
+.menuOptions {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menuOptions:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Product image */
+.menuImage {
+    width: 100%;
+    max-width: 180px;
+    margin: 0 auto 15px;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.menuImage:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Product text */
+.menuOptions .foodOption h2 {
+    color: #0d47a1;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.menuOptions .foodOption h3 {
+    color: #ffeb3b;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.menuOptions .foodOption p {
+    font-size: 14px;
+    color: #0d1b3d;
+    opacity: 0.8;
+}
+
+/* Add Button */
+.addButton {
+    background-color: #0d47a1;
+    border: none;
+    color: #ffeb3b;
+    font-size: 18px;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+.addButton:hover {
+    background-color: #1976d2;
+    transform: scale(1.1);
+}
+
+/* ---------- CART SECTION ---------- */
+.cart {
+    display: none;
+    background-color: #e3f2fd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.cart h1 {
+    color: #0d47a1;
+    margin-bottom: 10px;
+}
+.cart-user-order li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+.cart-user-order li h2 {
+    font-size: 18px;
+    color: #0d1b3d;
+}
+.cart-user-order li .cart-item-price {
+    font-weight: bold;
+    color: #ffeb3b;
+}
+
+/* Remove Button */
+.removeButton {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.removeButton:hover {
+    background-color: #d93636;
+}
+
+/* Total & Checkout */
+.cart-user-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #0d47a1;
+}
+.cart-completeOrderBtn {
+    display: block;
+    margin: 15px auto 0;
+    padding: 12px 24px;
+    background-color: #0d47a1;
+    color: #ffeb3b;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.cart-completeOrderBtn:hover {
+    background-color: #1976d2;
+}
+
+/* ---------- PAYMENT MODAL ---------- */
+.pay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+#pay-modal {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+#pay-modal h2 {
+    text-align: center;
+    color: #0d47a1;
+}
+#pay-modal input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+#pay-modal .payBtn {
+    background-color: #0d47a1;
+    color: #ffeb3b;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+#pay-modal .payBtn:hover {
+    background-color: #1976d2;
+}
+.closeModal {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #0d47a1;
+    cursor: pointer;
+}
+
+/* Order Message */
+.orderMessage {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 10px;
+    margin: 20px;
+    color: #0d47a1;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*  RESPONSIVE DESIGN  */
+
+/* Tablets */
+@media (max-width: 768px) {
+    header {
+        height: 180px;
+        font-size: 22px;
+        padding: 10px 20px;
+    }
+
+    .menu {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    #pay-modal {
+        width: 90%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    header {
+        height: 150px;
+        font-size: 18px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .menu {
+        grid-template-columns: 1fr;
+    }
+
+    .menuOptions {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menuOptions .emoji {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+}
+
+/*NEED TO MAKE HEADER STICK TO THE TOP AND SMALL DESIGN CHANGES TO THE FOOTER
+ AND SOME PADDING ON HEADER AS WELL AS SOME COOL QUIRKY HOVER EFFECTS*/
